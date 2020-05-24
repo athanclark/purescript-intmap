@@ -2,7 +2,7 @@ module Data.IntMap where
 
 import Prelude
 import Foreign.Object (Object)
-import Foreign.Object (insert, delete, lookup, toUnfoldable, fromFoldable, empty, union, keys, isEmpty, values) as O
+import Foreign.Object (insert, delete, lookup, toUnfoldable, fromFoldable, empty, union, keys, isEmpty, values, filter) as O
 import Data.Maybe (Maybe (..), fromJust)
 import Data.Tuple (Tuple (..), fst)
 import Data.Array (sortWith, toUnfoldable, fromFoldable) as Array
@@ -109,3 +109,6 @@ fromFoldable xs = IntMap (O.fromFoldable xs'')
 
 values :: forall a. IntMap a -> Array a
 values (IntMap xs) = O.values xs
+
+filter :: forall a. (a -> Boolean) -> IntMap a -> IntMap a
+filter f (IntMap x) = IntMap (O.filter f x)
