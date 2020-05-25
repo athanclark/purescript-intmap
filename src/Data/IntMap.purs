@@ -72,6 +72,11 @@ instance decodeArrayBufferIntMap :: (DynamicByteLength a, DecodeArrayBuffer a) =
 insert :: forall a. Int -> a -> IntMap a -> IntMap a
 insert k x (IntMap xs) = IntMap (O.insert (show k) x xs)
 
+insertWith :: forall a. Int -> (a -> a) -> a -> IntMap a -> IntMap a
+insertWith k f x set@(IntMap xs) = case O.lookup (show k) xs of
+  Nothing -> insert k x set
+  Just y  -> IntMap (O.insert (show k) (f y) xs)
+
 delete :: forall a. Int -> IntMap a -> IntMap a
 delete k (IntMap xs) = IntMap (O.delete (show k) xs)
 
