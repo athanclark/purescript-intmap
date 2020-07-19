@@ -1,0 +1,22 @@
+{
+  "name": "purescript-intmap",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "output"
+  ],
+  "license": "BSD-3-Clause",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/openchronology/purescript-intmap.git"
+  },
+  "dependencies": {
+    "purescript-prelude": "^4.1.1",
+    "purescript-arraybuffer-class": "^0.2.5",
+    "purescript-parseint": "^1.1.1"
+  },
+  "devDependencies": {
+    "purescript-psci-support": "^4.0.0"
+  }
+}
